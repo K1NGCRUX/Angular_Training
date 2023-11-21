@@ -1,0 +1,58 @@
+img{
+    width: 100px;
+    height: 100px;
+}
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    color: gray;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+  }
+  
+  table {
+    width: 70%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  thead{
+    text-align: center;
+  }
+  
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  th {
+    background-color: whitesmoke;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  #clear {
+    margin-top: 10px;
+  }
+  #loader{
+    width: 200px;
+  }
