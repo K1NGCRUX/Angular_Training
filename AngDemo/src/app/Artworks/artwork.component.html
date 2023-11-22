@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Artworks</title>
+  <link rel="stylesheet" href="./artwork.component.css" />
+</head>
+
+<body>
+  <h1>Artworks Component 2</h1>
+  <h2>Filter</h2>
+  <input type="radio" id="first" name="filter" value="first" onclick="Display1st()" />
+  <label for="first">1000 and 5000</label>
+  <input type="radio" id="second" name="filter" value="second" onclick="Display2nd()" />
+  <label for="second">5000 and 10000</label>
+  <input type="radio" id="third" name="filter" value="third" onclick="Display3rd()" />
+  <label for="third">10000 and above</label>
+  <div>
+    <button id="clear" name="clear" value="clear" onclick="ClearSelection()">Reset</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Thumbnail</th>
+        <th>Title</th>
+        <th>Timestamp</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody id="Artwork_Body">
+      <!--The body will be displayed here from the script-->
+    </tbody>
+  </table>
+</body>
+
+</html>
