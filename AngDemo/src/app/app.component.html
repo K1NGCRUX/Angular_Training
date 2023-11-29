@@ -1,0 +1,67 @@
+<h1>Home Component</h1>
+
+<header>
+    <nav>
+        <a class="button" routerLink="/artwork-list"><button (click)="ArtworksClicked()">Artworks List</button></a>
+        <br>
+        <br>
+        <a class="button" routerLink="/time-counter"><button
+                [ngClass]="isClicked ? 'button-clicked' : 'button-unclicked'" (click)="TimeStart()">Time
+                Ticker</button></a>
+    </nav>
+</header>
+
+<router-outlet></router-outlet>
+
+<div [ngStyle]="{'text-align':'center'}">
+    <h3 [ngStyle]="{'color' : 'red'}">Pipe Test</h3>
+
+    <h4>This is a test for the date pipe, here is the current date : {{date | date}}</h4>
+    <h4>This is a test for the curency pipe, I am changing 2 to = {{amount | currency : 'USD' : 'symbol' : '1.2-2'}}
+    </h4>
+    <h4>This is a test for the Uppercase pipe, before : {{AfterCheck}} & After : {{AfterCheck | uppercase}}</h4>
+    <h4>This is a test for the Lowercase, before: {{Before}} & after: {{Before | lowercase}} </h4>
+    <h4>This is a test for the Decimal Pipe, here is the number before: {{befDec}} & now : {{befDec | number:'1.2-4'}}
+    </h4>
+    <h4>This is a test for the Percentage Pipe, here is the number percent {{perce | percent}}</h4>
+</div>
+
+<h3>Custom Pipe test</h3>
+
+<p>This is a test for the custom pipe</p>
+<button (click)="showPipeExample()">Show Example</button>
+<div *ngIf="showPipe">
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Odd/Even</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let element of myArr">
+                <tr>
+                    <td>{{element}}</td>
+                    <td>{{element | NumberChecker}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<br>
+<br>
+
+<button (click)="counter()">Increase count</button>
+
+<app-counter [data]="count" [data2]="test" [Details]="Details">
+    <h1>This is data passed from the parent to the child</h1>
+</app-counter>
+
+<hr>
+
+<app-counter [title]="AfterCheck">
+    <h2>This is also another data passed from the parent</h2>
+</app-counter>
+
+<app-counter (myData)="childComponent($event)">{{ChildString}}</app-counter>
