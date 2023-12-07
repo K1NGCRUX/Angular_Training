@@ -1,0 +1,64 @@
+<h4>This is a template driven form</h4>
+
+<button (click)="showTForm()">View Form</button>
+<div class="form" *ngIf="formTData">
+    <form (ngSubmit)="onSubmitT(myForm)" #myForm="ngForm">
+        <!-- <form (ngSubmit)="onSubmitT()" #myForm> -->
+        <div ngModelGroup="Name" #nameGroup="ngModelGroup">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Enter your first name..." ngModel required
+                #fn="ngModel" />
+            <!-- <small *ngIf="fn.invalid && fn.touched">The first name is required</small> -->
+
+            <br>
+            <br>
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Enter your last name..." ngModel required
+                #ln="ngModel" />
+            <!-- <small *ngIf="ln.invalid && ln.touched">The last name is required</small> -->
+
+            <div *ngIf="nameGroup.invalid && nameGroup.touched">
+                <small>You have not entered all the data</small>
+            </div>
+        </div>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email..." ngModel required email
+            #email="ngModel" />
+        <small *ngIf="email.invalid && email.touched">The email is required</small>
+
+        <label for="gender">Gender</label>
+        <div *ngFor="let gen of gender">
+            <label for="{{gen.value}}">{{gen.value}}</label>
+            <input type="radio" id="{{gen.id}}" name="gender" value="{{gen.value}}" ngModel [ngModel]="defaultGender" />
+        </div>
+
+        <label for="location">Branch Location</label>
+        <select id="location" name="location" ngModel>
+            <option value="chennai">Chennai</option>
+            <option value="bangalore">Bangalore</option>
+            <option value="nagpur">Nagpur</option>
+            <option value="hyderabad">Hyderabad</option>
+            <option value="pune">Pune</option>
+        </select>
+
+        <input type="submit" value="submit" /> <!--[disabled]="myForm.valid" -->
+    </form>
+</div>
+
+<h4>User Details</h4>
+
+<button (click)="showTDetails()">Show User Details</button>
+<div *ngIf="detailsTView">
+    <table *ngFor="let key of dataKeys">
+        <tr *ngIf="UserTDetails[key]?.Name">
+            <th>Name : {{ UserTDetails[key]?.Name.firstname }} {{ UserTDetails[key]?.Name.lastname }}</th>
+        </tr>
+        <ng-container>
+            <tr *ngFor="let item of UserTDetails[key] | keyvalue">
+                <th *ngIf="item.key !== 'Name'">{{ item.key }} : {{ item.value }}</th>
+            </tr>
+        </ng-container>
+    </table>
+</div>

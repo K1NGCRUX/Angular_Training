@@ -1,0 +1,16 @@
+button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 0 15px;
+}
+
+li {
+  padding: 10px;
+  border: 1px solid #4caf50;
+  text-align: center;
+  margin: 10px;
+  list-style-type: none;
+}
